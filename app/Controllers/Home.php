@@ -20,7 +20,7 @@ class Home extends BaseController
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
         $data = [
-            'username' => $username,
+            'nome' => $username,
             'email' => $email,
             'password' => password_hash($password, PASSWORD_BCRYPT),
         ];
@@ -31,13 +31,39 @@ class Home extends BaseController
             return redirect()->back()->with('error', 'Erro ao cadastrar usuário');
         }
 
-
-
         // Proxima Aula: 
-        // 1. Criar o Model
-        // 2. Criar o método de inserir no banco de dados
+    
         // 3. Criar o método de autenticar o usuário
         // 4. Criar o método de logout
 
+    }
+
+    public function loginUser(){
+        $username = $this->request->getPost('username');
+        $password = $this->request->getPost('password');
+        echo $username;
+        echo $password;
+
+        $users_model = new UsersModel();
+        $user = $users_model->where('nome', $username)->first();
+        // select * from users where nome = $username
+
+        if ($user && password_verify($password, $user['password'])) {
+            // Autenticação bem-sucedida
+            //return redirect()->to('/home')->with('success', 'Login bem-sucedido');
+            echo "Login bem-sucedido";
+        } else {
+            // Falha na autenticação
+            //return redirect()->back()->with('error', 'Usuário ou senha inválidos');
+            var_dump($user);
+
+            echo "Usuário ou senha inválidos";
+        }
+    }
+
+
+    public function enterMyHome(): string
+    {
+        return view('myHome');
     }
 }

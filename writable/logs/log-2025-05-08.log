@@ -1,1 +1,67 @@
 DEBUG - 2025-05-08 17:24:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-05-08 17:48:25 --> mysqli_sql_exception: Unknown column 'username' in 'where clause' in /home/eduardo/sources/codeigniter/Aula_Login/aulaLogin/system/Database/MySQLi/Connection.php:327
+Stack trace:
+#0 /home/eduardo/sources/codeigniter/Aula_Login/aulaLogin/system/Database/MySQLi/Connection.php(327): mysqli->query()
+#1 /home/eduardo/sources/codeigniter/Aula_Login/aulaLogin/system/Database/BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /home/eduardo/sources/codeigniter/Aula_Login/aulaLogin/system/Database/BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /home/eduardo/sources/codeigniter/Aula_Login/aulaLogin/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /home/eduardo/sources/codeigniter/Aula_Login/aulaLogin/system/Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/eduardo/sources/codeigniter/Aula_Login/aulaLogin/system/BaseModel.php(717): CodeIgniter\Model->doFirst()
+#6 /home/eduardo/sources/codeigniter/Aula_Login/aulaLogin/app/Controllers/Home.php(46): CodeIgniter\BaseModel->first()
+#7 /home/eduardo/sources/codeigniter/Aula_Login/aulaLogin/system/CodeIgniter.php(933): App\Controllers\Home->loginUser()
+#8 /home/eduardo/sources/codeigniter/Aula_Login/aulaLogin/system/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+#9 /home/eduardo/sources/codeigniter/Aula_Login/aulaLogin/system/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/eduardo/sources/codeigniter/Aula_Login/aulaLogin/system/Boot.php(334): CodeIgniter\CodeIgniter->run()
+#11 /home/eduardo/sources/codeigniter/Aula_Login/aulaLogin/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+#12 /home/eduardo/sources/codeigniter/Aula_Login/aulaLogin/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 /home/eduardo/sources/codeigniter/Aula_Login/aulaLogin/system/rewrite.php(44): require_once('...')
+#14 {main}
+CRITICAL - 2025-05-08 17:48:25 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'username' in 'where clause'
+[Method: POST, Route: login]
+in SYSTEMPATH/Database/BaseConnection.php on line 692.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 2 SYSTEMPATH/Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(717): CodeIgniter\Model->doFirst()
+ 4 APPPATH/Controllers/Home.php(46): CodeIgniter\BaseModel->first()
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Home->loginUser()
+ 6 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH/rewrite.php(44): require_once('/home/eduardo/sources/codeigniter/Aula_Login/aulaLogin/public/index.php')
+CRITICAL - 2025-05-08 17:48:25 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'username' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 332.
+ 1 SYSTEMPATH/Database/BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute()
+ 2 SYSTEMPATH/Database/BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 4 SYSTEMPATH/Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(717): CodeIgniter\Model->doFirst()
+ 6 APPPATH/Controllers/Home.php(46): CodeIgniter\BaseModel->first()
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Home->loginUser()
+ 8 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+10 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+12 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+13 SYSTEMPATH/rewrite.php(44): require_once('/home/eduardo/sources/codeigniter/Aula_Login/aulaLogin/public/index.php')
+CRITICAL - 2025-05-08 17:48:25 --> [Caused by] mysqli_sql_exception: Unknown column 'username' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 327.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(327): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 5 SYSTEMPATH/Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(717): CodeIgniter\Model->doFirst()
+ 7 APPPATH/Controllers/Home.php(46): CodeIgniter\BaseModel->first()
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Home->loginUser()
+ 9 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+10 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+11 SYSTEMPATH/Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+13 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+14 SYSTEMPATH/rewrite.php(44): require_once('/home/eduardo/sources/codeigniter/Aula_Login/aulaLogin/public/index.php')
+DEBUG - 2025-05-08 17:49:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-08 17:51:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-08 17:51:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-08 17:56:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

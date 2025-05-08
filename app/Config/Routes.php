@@ -9,3 +9,4 @@ $routes->get('/', 'Home::showLogin');
 $routes->get('/register', 'Home::registerUser');
 $routes->post('/register', 'Home::registerUserInDataBase');
 $routes->post('/login', 'Home::loginUser');
+$routes->get('/home', 'Home::enterMyHome');
