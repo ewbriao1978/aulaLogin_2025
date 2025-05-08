@@ -41,8 +41,7 @@ class Home extends BaseController
     public function loginUser(){
         $username = $this->request->getPost('username');
         $password = $this->request->getPost('password');
-        echo $username;
-        echo $password;
+    
 
         $users_model = new UsersModel();
         $user = $users_model->where('nome', $username)->first();
@@ -50,14 +49,14 @@ class Home extends BaseController
 
         if ($user && password_verify($password, $user['password'])) {
             // Autenticação bem-sucedida
-            //return redirect()->to('/home')->with('success', 'Login bem-sucedido');
-            echo "Login bem-sucedido";
+            $this->session->set('user_id', $user['id']);
+            $this->session->set('nome', $user['nome']);
+            $this->session->set('email', $user['email']);
+            return redirect()->to('/home')->with('success', 'Login bem-sucedido');
         } else {
             // Falha na autenticação
-            //return redirect()->back()->with('error', 'Usuário ou senha inválidos');
-            var_dump($user);
-
-            echo "Usuário ou senha inválidos";
+            return redirect()->back()->with('error', 'Usuário ou senha inválidos');
+            
         }
     }
 
