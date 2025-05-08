@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+use App\Models\UsersModel;
 
 class Home extends BaseController
 {
@@ -23,7 +24,15 @@ class Home extends BaseController
             'email' => $email,
             'password' => password_hash($password, PASSWORD_BCRYPT),
         ];
-        var_dump($data);
+        $users_model = new UsersModel();
+        if($users_model->save($data)){
+            return redirect()->to('/')->with('success', 'Usuário cadastrado com sucesso');
+        } else {
+            return redirect()->back()->with('error', 'Erro ao cadastrar usuário');
+        }
+
+
+
         // Proxima Aula: 
         // 1. Criar o Model
         // 2. Criar o método de inserir no banco de dados
