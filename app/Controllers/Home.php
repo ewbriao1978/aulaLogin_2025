@@ -36,6 +36,10 @@ class Home extends BaseController
         // 3. Criar o método de autenticar o usuário
         // 4. Criar o método de logout
 
+        // COMO FAÇO PARA PEGAR VÁRIOS PRODUTOS DE UM MESMO CLIENTE?
+        //$produtoModel = new ProdutoModel();
+        //$produtosDoCliente = $produtoModel->where('id_usuario', $idCliente)->findAll();
+
     }
 
     public function loginUser(){
