@@ -38,7 +38,7 @@ class Home extends BaseController
 
         // COMO FAÇO PARA PEGAR VÁRIOS PRODUTOS DE UM MESMO CLIENTE?
         //$produtoModel = new ProdutoModel();
-        //$produtosDoCliente = $produtoModel->where('id_usuario', $idCliente)->findAll();
+        //$dados['produtos'] = $produtoModel->where('id_usuario', $idCliente)->findAll();
 
     }
 
