@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use App\Models\UsersModel;
+use App\Models\ProdutosModel;
 
 class Home extends BaseController
 {
@@ -56,7 +57,11 @@ class Home extends BaseController
             $this->session->set('user_id', $user['id']);
             $this->session->set('nome', $user['nome']);
             $this->session->set('email', $user['email']);
-            return redirect()->to('/home')->with('success', 'Login bem-sucedido');
+            if ($user['nome']=="adm@adm.org"){
+                return redirect()->to('/home_adm')->with('success', 'Login bem-sucedido');
+            }else{
+                return redirect()->to('/home')->with('success', 'Login bem-sucedido');
+            }
         } else {
             // Falha na autenticação
             return redirect()->back()->with('error', 'Usuário ou senha inválidos');
@@ -66,7 +71,26 @@ class Home extends BaseController
 
 
     public function enterMyHome(): string
-    {
-        return view('myHome');
+    {    
+        $userId = $this->session->get('user_id');
+        $produtosModel = new ProdutosModel();
+        $data['produtos_do_usuario'] = $produtosModel->where('id_usuario', $userId)->findAll();
+        return view('myHome', $data);
     }
+
+    public function logoutUser()
+    {
+        $this->session->destroy();
+        return redirect()->to('/')->with('success', 'Logout realizado com sucesso');
+    }
+
+
+    public function enterMyHomeAdm(): string
+    {    
+        
+        return view('myHomeAdm');
+    }
+
+
+
 }
